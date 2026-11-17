@@ -24,8 +24,6 @@ void Utils::SGTM(float a_in)
 {
 	static float* g_SGTM = (float*)RELOCATION_ID(511883, 388443).address();
 	*g_SGTM = a_in;
-	using func_t = decltype(SGTM);
-	REL::Relocation<func_t> func{ RELOCATION_ID(66989, 0) };
 	return;
 }
 
@@ -101,7 +99,7 @@ bool Utils::string_view::to_uint(std::string_view input, uint32_t& out)
 void Utils::damageav(RE::Actor* a, RE::ActorValue av, float val)
 {
 	if (a) {
-		a->AsActorValueOwner()->RestoreActorValue(RE::ACTOR_VALUE_MODIFIER::kDamage, av, -val);
+		a->AsActorValueOwner()->ModActorValue(RE::ACTOR_VALUE_MODIFIER::kDamage, av, -val);  // the same virtual (06), renamed in CommonLibSSE-GG
 	}
 }
 

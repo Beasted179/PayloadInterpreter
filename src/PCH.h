@@ -9,11 +9,7 @@
 #pragma warning(disable: 4702)
 #include <SimpleIni.h>
 
-#ifdef NDEBUG
-#	include <spdlog/sinks/basic_file_sink.h>
-#else
-#	include <spdlog/sinks/msvc_sink.h>
-#endif
+#include <spdlog/sinks/basic_file_sink.h>
 #pragma warning(pop)
 
 using namespace std::literals;
